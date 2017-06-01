@@ -3,7 +3,8 @@
     "method" : ["GET"],
     "handler": {
         "proxy" : {
-            "uri" : "http://nanoshots.com.br"
+            "uri" : "http://labs.superlogica.com",
+            "passThrough": true
         }
     }
 }

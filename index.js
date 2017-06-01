@@ -1,27 +1,33 @@
 
-const routesFolder = './routes/';
-const fs = require('fs');
-
+const fs = require('fs')
 const Hapi = require('hapi')
 const server = new Hapi.Server()
 
-server.connection({port: 80})
+const routesFolder = './services/'
+
+server.connection({ port: process.env.NODE_PORT || 8080 })
 
 server.register({
-        register: require('h2o2')
-    }, (err) => {}
-)
+    register: require('h2o2')
+}, (err) => {
+    if (err) {
+        throw err
+    }
+})
 
 fs.readdir(routesFolder, (err, files) => {
+
     files.forEach((file) => {
-        console.log(file);
-        
-        let filename = __dirname + "/routes/" + file
 
+        let filename = __dirname + "/services/" + file
+
+        console.log("LOAD FILE: " + file)
+
+        //Load a JSON data into a Hapi Route
         fs.readFile(filename, 'utf8', (err, data) => {
-            
-            let routeData = JSON.parse(data)
 
+            //Colocar um Foreach aqui - Poder carregar várias rotas dentro de um arquivo
+            let routeData = JSON.parse(data) 
             server.route(routeData)
 
         })
@@ -29,6 +35,13 @@ fs.readdir(routesFolder, (err, files) => {
     })
 })
 
-server.start((err) => {
-    console.log("gateway")
-})
+setTimeout((err) => {
+    server.start((err) => {
+        console.log("Pocket Gateway!")
+    })
+}, 1000)
+
+
+
+
+
