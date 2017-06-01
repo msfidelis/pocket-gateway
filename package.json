@@ -1,0 +1,19 @@
+{
+  "name": "pocket-gateway",
+  "version": "1.0.0",
+  "description": "My Pocket API Gateway",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msfidelis/pocket-gateway.git"
+  },
+  "author": "Matheus Fidelis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msfidelis/pocket-gateway/issues"
+  },
+  "homepage": "https://github.com/msfidelis/pocket-gateway#readme"
+}
