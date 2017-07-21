@@ -15,12 +15,15 @@ server.register({
     }
 })
 
+/**
+ * Register Hapi Routes
+ */
 server.register({
   register: require('hapi-router'),
   options: {
     routes: 'transformations/**/*.js' 
   }
-}, function (err) {
+}, (err) => {
   if (err) throw err;
 })
 
