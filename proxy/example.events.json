@@ -1,0 +1,12 @@
+[    
+    {
+        "path" : "/blog", 
+        "method" : ["GET"], 
+        "handler": {
+            "proxy" : {
+                "uri": "http://blog.superlogica.com",
+                "passThrough": true
+            }
+        }
+    }
+]

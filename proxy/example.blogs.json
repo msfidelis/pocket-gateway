@@ -1,0 +1,32 @@
+[
+    {
+        "path" : "/labs",
+        "method" : ["GET"],
+        "handler": {
+            "proxy" : {
+                "uri" : "http://labs.superlogica.com",
+                "passThrough": true
+            }
+        }
+    },
+    {
+        "path" : "/xperience", 
+        "method" : ["GET"], 
+        "handler": {
+            "proxy" : {
+                "uri": "http://xperience.superlogica.com",
+                "passThrough": true
+            }
+        }
+    },
+    {
+        "path" : "/next", 
+        "method" : ["GET"], 
+        "handler": {
+            "proxy" : {
+                "uri": "http://next.superlogica.com",
+                "passThrough": true
+            }
+        }
+    }
+]

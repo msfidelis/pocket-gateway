@@ -3,7 +3,7 @@ const fs = require('fs')
 const Hapi = require('hapi')
 const server = new Hapi.Server()
 
-const routesFolder = './services/'
+const routesFolder = 'proxy/'
 
 server.connection({ port: process.env.NODE_PORT || 8080 })
 
@@ -15,21 +15,36 @@ server.register({
     }
 })
 
+server.register({
+  register: require('hapi-router'),
+  options: {
+    routes: 'transformations/**/*.js' 
+  }
+}, function (err) {
+  if (err) throw err;
+})
+
+/**
+ * Proxy Router
+ */
 fs.readdir(routesFolder, (err, files) => {
 
     files.forEach((file) => {
 
-        let filename = __dirname + "/services/" + file
+        let filename = __dirname + "/" + routesFolder + file
+        console.log("LOADED FILE: " + filename)
 
-        console.log("LOAD FILE: " + file)
-
-        //Load a JSON data into a Hapi Route
+        //Route Proxy Endpoints from JSON Files into HAPI Server
         fs.readFile(filename, 'utf8', (err, data) => {
 
-            //Colocar um Foreach aqui - Poder carregar várias rotas dentro de um arquivo
             let routeData = JSON.parse(data) 
-            server.route(routeData)
 
+            routeData.forEach((route) => {
+
+                //To Do - More Validations
+                server.route(route)
+            })
+            
         })
 
     })
