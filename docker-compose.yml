@@ -1,5 +1,15 @@
-'version' : 3
+'version' : "3"
 services:
   pocket-gateway:
     build: .
+    ports:
+        - 8080:8080
+    networks:
+        - gateway
+    command: "npm run dev"
+
+    volumes:
+      - ./:/gateway
     
+networks:
+    gateway: 
