@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const Hapi = require('hapi');
 const h2o2 = require('h2o2');
 
@@ -41,7 +42,8 @@ fs.readdir(routesFolder, (err, files) => {
 
     files.forEach((file) => {
 
-        let filename = __dirname + "/" + routesFolder + file;
+        let filename = path.join(__dirname, routesFolder, file);
+
         console.log("LOADED FILE: " + filename);
 
         //Route Proxy Endpoints from JSON Files into HAPI Server
