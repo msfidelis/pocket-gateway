@@ -1,7 +1,9 @@
+'use strict';
+
 module.exports = [
 
     /**
-     * V1 Alive Method
+     * Example API
      */
     {
         method: 'GET',
@@ -9,8 +11,8 @@ module.exports = [
         handler: (req, res) => {
             res({
                 'alive': 'true'
-            })
+            });
         }
     }
 
-]
+];

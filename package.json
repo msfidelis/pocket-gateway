@@ -20,5 +20,8 @@
     "dependencies": {
         "hapi-router": "^3.5.0",
         "wreck": "^12.2.2"
+    },
+    "devDependencies": {
+        "jshint": "^2.9.5"
     }
 }
