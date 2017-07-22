@@ -55,6 +55,11 @@ fs.readdir(routesFolder, (err, files) => {
 });
 
 server.start((err) => {
+
+    if (err) {
+        throw err;
+    }
+
     console.log("Pocket Gateway!");
 });
 
