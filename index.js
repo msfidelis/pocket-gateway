@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Hapi = require('hapi');
 const h2o2 = require('h2o2');
+const hapiRouter = require('hapi-router');
 
 const server = new Hapi.Server();
 
@@ -23,7 +24,7 @@ server.register({
  * Register Hapi Routes
  */
 server.register({
-    register: require('hapi-router'),
+    register: hapiRouter,
     options: {
         routes: 'transformations/**/*.js'
     }
