@@ -2,6 +2,8 @@
 
 const fs = require('fs');
 const Hapi = require('hapi');
+const h2o2 = require('h2o2');
+
 const server = new Hapi.Server();
 
 const routesFolder = 'proxy/';
@@ -9,7 +11,7 @@ const routesFolder = 'proxy/';
 server.connection({ port: process.env.NODE_PORT || 8080 });
 
 server.register({
-    register: require('h2o2')
+    register: h2o2
 }, (err) => {
     if (err) {
         throw err;
@@ -33,6 +35,10 @@ server.register({
  */
 fs.readdir(routesFolder, (err, files) => {
 
+    if (err) {
+        throw err;
+    }
+
     files.forEach((file) => {
 
         let filename = __dirname + "/" + routesFolder + file;
@@ -41,10 +47,12 @@ fs.readdir(routesFolder, (err, files) => {
         //Route Proxy Endpoints from JSON Files into HAPI Server
         fs.readFile(filename, 'utf8', (err, data) => {
 
+            if (err) {
+                console.log(err);
+            }
+
             let routeData = JSON.parse(data);
-
             routeData.forEach((route) => {
-
                 //To Do - More Validations
                 server.route(route);
             });
@@ -55,12 +63,11 @@ fs.readdir(routesFolder, (err, files) => {
 });
 
 server.start((err) => {
-
     if (err) {
         throw err;
+    } else {
+        console.log("Pocket Gateway!");
     }
-
-    console.log("Pocket Gateway!");
 });
 
 module.exports = server;
