@@ -1,10 +1,19 @@
-[    
-    {
-        "path" : "/blog", 
-        "method" : ["GET"], 
+[{
+        "path": "/xperience",
+        "method": ["GET"],
         "handler": {
-            "proxy" : {
-                "uri": "http://blog.superlogica.com",
+            "proxy": {
+                "uri": "http://xperience.superlogica.com",
+                "passThrough": true
+            }
+        }
+    },
+    {
+        "path": "/next",
+        "method": ["GET"],
+        "handler": {
+            "proxy": {
+                "uri": "http://next.superlogica.com",
                 "passThrough": true
             }
         }
