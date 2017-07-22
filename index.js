@@ -54,8 +54,14 @@ fs.readdir(routesFolder, (err, files) => {
     });
 });
 
-setTimeout((err) => {
-    server.start((err) => {
-        console.log("Pocket Gateway!");
-    });
-}, 1000);
+// setTimeout((err) => {
+//     server.start((err) => {
+//         console.log("Pocket Gateway!");
+//     });
+// }, 1000);
+
+server.start((err) => {
+    console.log("Pocket Gateway!");
+});
+
+module.exports = server;
