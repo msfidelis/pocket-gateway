@@ -21,9 +21,12 @@ module.exports = [
                 //Intercept Response
                 onResponse: (err, res, request, reply, settings, ttl) => {
 
+                    if (err) throw err;
+
                     //Use Wreck module to parse response payload
                     Wreck.read(res, { json: true }, (err, body) => {
 
+                        if (err) throw err;
                         console.log('some payload manipulation if you want to.')
 
                         //Modify Response Body
