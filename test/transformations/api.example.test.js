@@ -10,6 +10,8 @@ describe('TRANSFORMATIONS TEST', () => {
 
         server.inject(options, (response) => {
             expect(response).to.have.property('statusCode', 200);
+            expect(response.result).to.have.property('alive');
+            expect(response.result.alive).to.contain('true');
             done();
         });
 
