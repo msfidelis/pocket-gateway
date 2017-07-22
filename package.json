@@ -21,6 +21,7 @@
         "h2o2": "^5.4.0",
         "hapi": "^16.5.0",
         "hapi-router": "^3.5.0",
+        "nodemon": "^1.11.0",
         "wreck": "^12.2.2"
     },
     "devDependencies": {
