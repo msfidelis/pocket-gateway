@@ -1,4 +1,8 @@
-# pocket-gateway
+# Pocket API Gateway
+
+[![Build Status](https://travis-ci.org/msfidelis/pocket-gateway.svg?branch=master)](http://travis-ci.org/msfidelis/boreal)
+[![Code Climate](https://codeclimate.com/github/msfidelis/pocket-gateway/badges/gpa.svg)](https://codeclimate.com/github/msfidelis/pocket-gateway)
+
 My Pocket API Gateway. It's only a POC for studies purposes.
 
 Pocket Gateway was builded using [Hapi JS](https://hapijs.com/) as Server and [H2o2](https://github.com/hapijs/h2o2) plugin as Proxy handler. 
