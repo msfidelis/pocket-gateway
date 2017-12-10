@@ -4,6 +4,9 @@
     "description": "My Pocket API Gateway",
     "main": "index.js",
     "scripts": {
+        "start":"pm2 start index.js --watch",    
+        "stop" : "pm2 stop all",
+        "monitor" : "pm2 monit",
         "test": "./node_modules/.bin/lab -v -l",
         "dev": "nodemon index.js"
     },
@@ -22,6 +25,7 @@
         "hapi": "^16.5.0",
         "hapi-router": "^3.5.0",
         "nodemon": "^1.11.0",
+        "pm2": "^2.8.0",
         "wreck": "^12.2.2"
     },
     "devDependencies": {

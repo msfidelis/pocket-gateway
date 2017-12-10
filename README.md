@@ -20,6 +20,24 @@ Development Environment
  $ npm run dev
 ```
 
+Start production Environment 
+
+```
+$ npm start
+```
+
+Stop Pocket Gateway
+
+```
+$ npm run stop
+```
+
+Start Monitor 
+
+```
+$ npm run monitor
+```
+
 # Create a API route in Proxy Gateway 
 
 Add a JSON file in `proxy` folder like a Hapi Route.
